@@ -1,0 +1,17 @@
+# Intellij crap
+.idea/
+*.iml
+
+# Binaries
+node_modules/
+
+# Logfiles
+*.log
+
+# Confidential
+sessions/
+session_secret
+evesso.json
+*.sqlite
+
+**/templates/*
