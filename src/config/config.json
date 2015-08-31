@@ -18,7 +18,7 @@
     "logging" : false
   },
   "production": {
-    "username": "euni-tools",
+    "username": "root",
     "password": "1234",
     "database": "templates",
     "host": "localhost",
