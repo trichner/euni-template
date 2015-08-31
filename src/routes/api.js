@@ -13,7 +13,7 @@ var app = require('express')();
 app.use('/',parser);
 
 if(env != "test"){
-    //app.use(authenticator);
+    app.use(authenticator);
 }
 
 app.use('/characters',characters);
