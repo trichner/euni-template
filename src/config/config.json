@@ -5,7 +5,7 @@
     "database": "templates",
     "host": "localhost",
     "dialect": "mysql",
-    "eveSsoCallback": "http://localhost:3000/euni-templates/api/auth/callback",
+    "eveSsoCallback": "http://localhost:3000/euni-template/api/auth/callback",
     "logging" : false
   },
   "test": {
@@ -14,7 +14,7 @@
     "database": "templates",
     "host": "localhost",
     "dialect": "mysql",
-    "eveSsoCallback": "http://localhost:3000/euni-templates/api/auth/callback",
+    "eveSsoCallback": "http://localhost:3000/euni-template/api/auth/callback",
     "logging" : false
   },
   "production": {
@@ -23,7 +23,7 @@
     "database": "templates",
     "host": "localhost",
     "dialect": "mysql",
-    "eveSsoCallback" :  "https://k42.ch/euni-templates/api/auth/callback",
+    "eveSsoCallback" :  "https://k42.ch/euni-template/api/auth/callback",
     "logging" : false
   }
 }
