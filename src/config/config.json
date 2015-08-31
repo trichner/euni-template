@@ -15,7 +15,7 @@
     "host": "localhost",
     "dialect": "mysql",
     "eveSsoCallback": "http://localhost:3000/euni-template/api/auth/callback",
-    "logging" : false
+    "logging" : true
   },
   "production": {
     "username": "root",
