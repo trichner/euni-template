@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en" id="ng-app" ng-app="app">
 <head>
-	<link rel="stylesheet" type="text/css" href="style/bank-gothic-md-bt/stylesheet.css" />
 	<link rel="stylesheet" type="text/css" href="style/angular-ui-notification.min.css" />
 	<link rel="stylesheet" type="text/css" href="dependencies/bootstrap/dist/css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="style/index.css" />
 	<link rel="icon" type="image/png" href="img/ivy_logo_4.png">
 
     <meta charset="utf-8">
-    <title>Eve University Tools</title>
+    <title>Eve University Templates</title>
     <script src="dependencies/angular/angular.js" defer></script>
 	<script src="dependencies/angular-bootstrap/ui-bootstrap.js" defer></script>
 	<script src="dependencies/angular-ui-notification-0.0.5/angular-ui-notification.min.js" defer></script>
+	<script src="dependencies/angular-object-path/angular-object-path.min.js" defer></script>
 	<script src="js/app.js" defer></script>
 	<script src="js/filters/capitalize.js" defer></script>
 	<script src="js/filters/timeAgo.js" defer></script>
@@ -57,7 +57,7 @@
 			<div class="actions">
 				<div class="box-title"><b>Template</b></div>
 				<div ng-repeat="value in selectedTemplate.values">
-					<input type="text" name="{{value.path}}" placeholder="{{value.path}}" ng-model="value.input">
+					<input type="text" name="{{value.path}}" placeholder="{{value.path}}" ng-model="value.input" ng-change="inputChanged()">
 				</div>
 				<textarea class="text-box" ng-model="template" placeholder="write new note here..." rows="20" width="100%">
 				</textarea>
@@ -72,7 +72,7 @@
 		<div class="col-md-4">
 			<div class="actions">
 				<div class="box-title"><b>Templates</b></div>
-				<select ng-model="selectedTemplate" ng-options="x.title for x in templates" size="30" style="width: 100%"></select>
+				<select ng-model="selectedTemplate" ng-options="x.name for x in templates" size="30" style="width: 100%"></select>
 			</div>
 			<div ng-hide="!eveigb.isIGB()" class="actions text-center">
 				<div>

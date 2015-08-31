@@ -1,1 +1,1 @@
-app = angular.module('app', ['ui-notification','ui.bootstrap']);
+app = angular.module('app', ['ui-notification','ui.bootstrap',"objectPath"]);

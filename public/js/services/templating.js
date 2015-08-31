@@ -7,7 +7,7 @@
  *  Created: 13.04.2015
  *  Author: Thomas Richner - mail@trichner.ch
  */
-app.factory('Templating', function($http,$interpolate,EveLinky) {
+app.factory('Templating', function($http,$interpolate,$q,EveLinky) {
     var TEMPLATES_DIR = 'templates/';
     function loadTemplate(template){
         return $http.get(TEMPLATES_DIR + template)
@@ -31,17 +31,9 @@ app.factory('Templating', function($http,$interpolate,EveLinky) {
 
     return {
         render: function(template,values){
-            if(!(typeof template === "string")){
-                template = template.template;
-            }
             values = decorateScope(values);
-
-            return loadTemplate(template)
-                .then(function (txt) {
-                    var compiled = $interpolate(txt);
-                    return compiled(values)
-                })
-
+            var compiled = $interpolate(template.template);
+            return $q.when(compiled(values));
         },
         load: function (template) {
             return loadTemplate(template);
