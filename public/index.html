@@ -52,12 +52,13 @@
 			<h1>EVE Online Template Store</h1>
 		</div>
 	</div>
+	<!-- Body -->
 	<div class="row">
 		<div class="col-md-8">
 			<div class="actions">
 				<div class="box-title"><b>Template</b></div>
 				<div ng-repeat="value in selectedTemplate.values">
-					<input type="text" name="{{value.path}}" placeholder="{{value.path}}" ng-model="value.input" ng-change="inputChanged()">
+					<input type="text" name="{{value.path}}" title="{{value.path}}" placeholder="{{value.path}}" ng-model="value.input" ng-change="inputChanged()">
 				</div>
 				<textarea class="text-box" ng-model="template" placeholder="write new note here..." rows="20" width="100%">
 				</textarea>

@@ -15,13 +15,29 @@ app.controller('AccountDetailsCtrl', function ($scope, $http, $location, $interv
     $scope.templates = [];
     $scope.selectedTemplate = {};
 
+    $scope.$watch('selectedTemplate', function (newValue, oldValue) {
+        decorateValues(newValue);
+        renderSelected();
+    })
+
     $scope.inputChanged = function () {
         renderSelected();
     }
 
-    function renderSelected() {
+    function decorateValues(template){
+        var context = {me: angular.copy($scope.me)};
 
+        template.values.forEach(function (value) {
+            value.input = objectPath.get(context,value.path);
+        })
+    }
+
+    function renderSelected() {
         var template = $scope.selectedTemplate;
+        return renderTemplate(template);
+    }
+
+    function renderTemplate(template){
         var context = {};
         template.values.forEach(function (value) {
             objectPath.set(context,value.path, value.input);
@@ -32,7 +48,6 @@ app.controller('AccountDetailsCtrl', function ($scope, $http, $location, $interv
             .then(function (rendered) {
                 $scope.template = rendered;
             })
-
     }
 
     $scope.render = renderSelected;
