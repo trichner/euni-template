@@ -25,26 +25,13 @@
 </head>
 <body ng-controller="AccountDetailsCtrl">
 <div class="container">
+	<!-- Login/Logout -->
 	<div ng-hide="authenticated" class="col-md-offset-4 col-md-4 col-md-offset-4">
-		<div class="actions">
-			Please log in via EVE Single-Sing-On. <!-- Typo totally intended -->
-			<form action="api/auth" method="POST">
-				<input	class="evessoSubmit" type="submit" value="">
-				<br>
-				<input name="rememberMe" type="checkbox">
-				<input type="hidden" id="currentUrl" name="currentUrl" value="" />
-				<script type="text/javascript">document.getElementById('currentUrl').value = window.location.href;</script>
-				<span>remember me</span>
-			</form>
-		</div>
+		<ng-include src="'partials/login.html'"></ng-include>
 	</div>
+
 	<div ng-hide="!authenticated" class="col-md-offset-4 col-md-4 col-md-offset-4">
-		<div class="actions">
-			Logged in as {{me.name}}.
-			<form action="api/deauth" method="POST">
-				<input class="btn btn-default btn-sm" type="submit" value="Logout">
-			</form>
-		</div>
+		<ng-include src="'partials/logout.html'"></ng-include>
 	</div>
 	<!-- TITLE -->
 	<div class="row" ng-cloak>
