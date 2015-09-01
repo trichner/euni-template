@@ -6,7 +6,7 @@ var request = require('supertest');
 var path    = require("path");
 
 var models = require('../../models');
-var app     = require('../../routes/root')
+var app     = require('../../routes/index')
 
 describe('routes/accounts', function () {
     //before(function () {
