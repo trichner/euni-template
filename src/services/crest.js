@@ -18,6 +18,17 @@ module.exports = {
     },
     getCharacterId : function(characterNames){
         return client.fetch('eve:CharacterID',{names:characterNames})
+            .then(function (character) {
+                var entry = firstEntry(character.characters);
+                var mapped = null;
+                if(entry){
+                    mapped = {
+                        id: entry.characterID,
+                        name: entry.name
+                    }
+                }
+                return mapped;
+            })
     },
     getCharacterFromAccessToken : getCharacterFromAccessToken
 }
@@ -37,4 +48,12 @@ function getCharacterId(accessToken){
 function getCharacterFromAccessToken(accessToken){
     return getCharacterId(accessToken)
         .then(api.getCharacter)
+}
+
+function firstKey(obj){
+    return Object.keys(obj)[0];
+}
+
+function firstEntry(obj){
+    return obj[firstKey(obj)];
 }

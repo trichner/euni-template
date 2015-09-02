@@ -6,6 +6,7 @@ var authenticator = require('./authenticator');
 
 var characters = require('./characters');
 var templates = require('./templates');
+var eveApi = require('./eve-api');
 
 var env       = process.env.NODE_ENV || "production";
 var config    = require(__dirname + '/../config/config.json')[env];
@@ -18,5 +19,6 @@ if(env != "test"){
 
 app.use('/characters',characters);
 app.use('/templates',templates);
+app.use('/eve-api',eveApi);
 
 module.exports = app;
