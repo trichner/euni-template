@@ -62,6 +62,7 @@
 				<div class="box-title"><b>Templates</b></div>
 				<select ng-model="selectedTemplate" ng-options="x.name for x in templates" size="30" style="width: 100%"></select>
 			</div>
+			<ng-include src="'partials/characterName2Id.html'"></ng-include>
 			<div ng-hide="!eveigb.isIGB()" class="actions text-center">
 				<div>
 					<button class="btn btn-default btn-sm"
