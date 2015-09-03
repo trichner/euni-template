@@ -73,6 +73,16 @@ router.get('/auth/callback', function(req, res, next) {
     })(req, res, next);
 });
 
+//--- Bouncer
+router.use(function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        var err = new Error('Please authenticate.')
+        err.status = 401;
+        return next(err);
+    }
+})
 
 //--- Logout
 router.post('/deauth', function (req, res, next) {
@@ -86,17 +96,5 @@ router.post('/deauth', function (req, res, next) {
         }
     })
 });
-
-//--- Bouncer
-router.use(function (req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        var err = new Error('Please authenticate.')
-        err.status = 401;
-        return next(err);
-    }
-})
-
 
 module.exports = router;
